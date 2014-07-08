@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+{% block contenido %}
+
+<form action="/reserva/" method="post" id="fcarrito">'''
+    {% csrf_token %}
+    <h3>Nombre: {{ pro.nombre }}</h3>
+    <p><img src="/media/{{ pro.imagen }}"></p>
+    {{ fcarr }}
+   <a href="/reserva/"> <input type="submit" value="Añadir a Carrito"></a>
+</form>
+{%endblock%}

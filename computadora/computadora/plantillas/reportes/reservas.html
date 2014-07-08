@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% block contenido %}
+<table border="1px" width="80%" align="center">
+    <th>
+        Nro de reserva
+    </th>
+    <th>
+        Placa
+    </th>
+    <th>
+        Microprocesador
+    </th>
+    <th>
+        Memoria Ram
+    </th>
+    <th>
+        Tarjeta video
+    </th>
+    <th>
+        Tarjeta sonido
+    </th>
+    <th>
+        Detalle
+    </th>
+    
+    <th>
+        Fecha compra
+    </th>
+      <th>
+        Precio
+    </th>
+      <th>
+        Precio_Total
+    </th>
+    
+    {% for i in venta %}
+        <tr>
+            <td>
+                {{ i.placa }}
+            </td>
+            <td>
+                {{ i.microprosesador }}
+            </td>
+            <td>
+                {{ i.memoria ram }}
+            </td>
+            <td>
+                {{ i.tarjeta video }}
+            </td>
+             <td>
+                {{ i.tarjeta sonido }}
+            </td>
+            
+            <td>
+                {{ i.detalle }}
+            </td>
+            <td>
+                {{ i.fecha }}
+            </td>
+            <td>
+                {{ i.precio }}
+            </td>
+            <td>
+                {{ i.precio_toltal}}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Reporte de ventas</title>
+</head>
+<body>
+
+    <style>
+     h2{color: white; display: block; background: royalblue; padding: 10px; text-align: center;}
+     table { padding: 5px;}
+     th{ color: midnightblue; background: skyblue;}
+     td{text-align: center;}
+    </style>
+    <div>
+        <h2>Reporte ventas</h2>
+    </div>
+    <table border="1px" width="100%" align="center">
+        <th>
+            Nro de venta
+        </th>
+        <th>
+            Fecha de compra
+        </th>
+        <th>
+            Cliente
+        </th>
+        <th>
+            Productos
+        </th>
+        <th>
+            Costos de Pro
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th>
+            Total
+        </th>
+        {% for venta in venta %}
+                {% if venta.id == venta.id %}
+            <tr>
+
+                <td>
+                    {{ venta.id}}<br>
+                </td>
+                <td>
+                    {{ venta.fecha_venta}}<br>
+                </td>
+                <td>
+                    {% for u in usuario%}
+                        {% if venta.cliente_id == u.user_id %}
+                            {{ u.nombre}}<br>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for dventa in detalleventa %}
+                        {% for pro in nom_pro  %}
+                {% if dventa.venta_id == venta.id %}
+                    {% if dventa.producto_id == pro.id %}
+                    <br>{{ pro.nombre_pro }}<br>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                </td>
+
+
+                <td>
+                {% for dventa in detalleventa %}
+                {% if dventa.venta_id == venta.id%}
+                    <br>{{ dventa.costo_producto }}<br>
+                {% endif %}
+                {% endfor %}
+                </td>
+
+
+                <td>
+                {% for dventa in detalleventa %}
+                {% if dventa.venta_id == venta.id%}
+                    <br>{{ dventa.cantidad }}<br>
+                {% endif %}
+                {% endfor %}
+                </td>
+
+                <td>
+                    {{ venta.costo_total }}
+                </td>
+
+            </tr>
+                {% endif %}
+        {% endfor %}
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!Doctype html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<title>ADMINISTRADOR</title>
+		<link rel="stylesheet" href ="/static/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href ="/static/bootstrap/css/bootstrap-responsive.css">
+		<script src="/static/js/jquery.js"></script>
+		
+    <script src="/media/js/demo.js"></script>
+   		<script src="/static/bootstrap/js/bootstrap.js"></script>
+   		<style type="text/css">
+      		body {
+        		padding-top: 60px;
+        		padding-bottom: 40px;
+     		}
+      		.sidebar-nav {
+        		padding: 9px 0;
+     		}
+   		</style>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<ul class="nav">
+             	<li><a href="#">Placas</a></li>
+				<li><a href="#">Categoria</a></li>
+				<li><a href="#">Componente</a></li>
+				<li><a href="#">Compatibilidad</a></li>
+				<li><a href="#">Reportes</a></li>
+            </ul> 	
+		</div>
+	</div>
+	<div class="container-fluid">
+    	<div class="row-fluid">
+       		<div class="span9">
+        		<div class="hero-unit">
+        			<link rel="stylesheet" type="text/css" href="/static/css/sitio.css">
+
+		{% block encabezado %}
+				<h3><center><p>SISTEMA DE MODERACION  </p></center></h3>
+		{% endblock %}
+		
+				<br><form id='formulario' method='post' action=''>
+						{% csrf_token %}
+						<table><enter>{{form}}</center></table>
+						<br><br><p><center><input class="btn btn-small btn-primary"href ="principal" type='submit' value='LOGIN'></center></p>
+
+				<br>
+					{{informacion}}
+
+				</br>
+   				</div>
+   			</div>
+   		</div>
+	</div>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,54 @@
+{% block pdf %}
+    <style>
+     h2{color: white; display: block; background: royalblue; padding: 10px; text-align: center;}
+     table { padding: 5px;}
+     th{ color: midnightblue; background: skyblue;}
+    </style>
+    <div>
+        <h2>Reportes</h2>
+    </div>
+    <table border="1px" width="80%" align="center">
+        <th>
+            Componente
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th>
+            Precio
+        </th>
+        <th>
+            Precio toltal
+        </th>
+        {% for i in reservas %}
+            <tr>
+                <td>
+                    {{ i.placa }}
+                </td>
+                <td>
+                    {{ i.microprocesador }}
+                </td>
+                <td>
+                    {{ i.tarjeta_video }}
+                </td>
+                <td>
+                    {{ i.tarjeta_sonido }}
+                </td>
+                <td>
+                    {{ i.detalle }}
+                </td>
+                
+                <td>
+                    {{ i.precio}}
+                </td>
+                
+                <td>
+                    {{ i.precio_total}}
+                </td>
+                <td>
+                    {{ i.fecha }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

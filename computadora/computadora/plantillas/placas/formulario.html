@@ -1,0 +1,12 @@
+
+    {% if compo.count == 0 %}
+        <label><b>No existe componentes de esa categoria</b></label>
+    {% else %}
+     <label style="text-transform: uppercase"><b>{{ catego.nombre }} compatibles :</b></label>
+     <select>
+         <option value="0" id="0">Selecciona</option>
+        {% for i in compo %}
+            <option value="{i.id}">{{i.nombre}}</option>
+        {% endfor %}
+    </select>
+    {% endif %}
